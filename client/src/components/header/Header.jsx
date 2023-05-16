@@ -15,7 +15,7 @@ const Header = () => {
             {/* <img src={logo} alt="Filmlane logo" /> */}
             <h2>
               <span style={{ color: "white", padding: 0, margin: 0 }}></span>
-              kofi maketples
+              Kofi Maketples
             </h2>
           </a>
 
