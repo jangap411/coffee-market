@@ -1,14 +1,13 @@
 import "./App.css";
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
-import Slider from "./components/Slider";
+
+import Header from "./components/header/Header";
+import Hero from "./components/hero/Hero";
 
 const App = () => {
   return (
     <>
-      <Nav />
-      <Slider />
-      <Footer />
+      <Header />
+      <Hero />
     </>
   );
 };
