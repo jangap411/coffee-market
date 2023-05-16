@@ -49,7 +49,7 @@ const Header = () => {
 
           <nav className="navbar" data-navbar>
             <div className="navbar-top">
-              <a href="./index.html" className="logo">
+              <a href="/#" className="logo">
                 <img src="./assets/images/logo.svg" alt="Filmlane logo" />
               </a>
 
