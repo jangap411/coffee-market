@@ -116,7 +116,7 @@ const Header = () => {
               </li>
 
               <li>
-                <a href="#" class="navbar-social-link">
+                <a href="/#" class="navbar-social-link">
                   <ion-icon name="logo-youtube"></ion-icon>
                 </a>
               </li>
