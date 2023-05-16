@@ -20,9 +20,9 @@ const Hero = () => {
               </div>
 
               <div className="ganre-wrapper">
-                <a href="#">Roast,</a>
+                <a href="/#">Roast,</a>
 
-                <a href="#">Dry</a>
+                <a href="/#">Dry</a>
               </div>
 
               <div className="date-time">
