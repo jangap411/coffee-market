@@ -1,5 +1,5 @@
 import React from "react";
-import { logo } from "../assets/index";
+// import { logo } from "../assets/index";
 const Nav = () => {
   return (
     <nav id="nav">
