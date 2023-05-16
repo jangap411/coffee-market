@@ -67,21 +67,21 @@ const Header = () => {
 
               <li>
                 <a href="#" className="navbar-link">
-                  Movie
+                  Farmers
                 </a>
               </li>
 
               <li>
                 <a href="#" className="navbar-link">
-                  Tv Show
+                  Exporters
                 </a>
               </li>
 
-              <li>
+              {/* <li>
                 <a href="#" className="navbar-link">
                   Web Series
                 </a>
-              </li>
+              </li> */}
 
               <li>
                 <a href="#" className="navbar-link">

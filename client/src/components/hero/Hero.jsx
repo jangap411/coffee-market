@@ -9,33 +9,33 @@ const Hero = () => {
             <p className="hero-subtitle">Kofi Maketples</p>
 
             <h1 className="h1 hero-title">
-              Unlimited <strong>Movie</strong>, TVs Shows, & More.
+              Your Ultimate <strong>Coffee</strong>, Experience.
             </h1>
 
             <div className="meta-wrapper">
               <div className="badge-wrapper">
-                <div className="badge badge-fill">PG 18</div>
+                <div className="badge badge-fill">ARABICA</div>
 
-                <div className="badge badge-outline">HD</div>
+                <div className="badge badge-outline">HIGHLANDS</div>
               </div>
 
               <div className="ganre-wrapper">
-                <a href="#">Romance,</a>
+                <a href="#">Roast,</a>
 
-                <a href="#">Drama</a>
+                <a href="#">Dry</a>
               </div>
 
               <div className="date-time">
                 <div>
                   <ion-icon name="calendar-outline"></ion-icon>
 
-                  <time datetime="2022">2022</time>
+                  {/* <time datetime="2022">2022</time> */}
                 </div>
 
                 <div>
                   <ion-icon name="time-outline"></ion-icon>
 
-                  <time datetime="PT128M">128 min</time>
+                  {/* <time datetime="PT128M">128 min</time> */}
                 </div>
               </div>
             </div>
@@ -43,7 +43,7 @@ const Hero = () => {
             <button className="btn btn-primary">
               <ion-icon name="play"></ion-icon>
 
-              <span>Watch now</span>
+              <span>Explore now</span>
             </button>
           </div>
         </div>
