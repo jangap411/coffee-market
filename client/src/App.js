@@ -1,10 +1,13 @@
 import "./App.css";
+import Header from "./components/header/Header";
+import Hero from "./components/hero/Hero";
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Kofi Maketples</h1>
-    </div>
+    <>
+      <Header />
+      <Hero />
+    </>
   );
 };
 
