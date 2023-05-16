@@ -1,10 +1,15 @@
 import "./App.css";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
+import Slider from "./components/Slider";
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Kofi Maketples</h1>
-    </div>
+    <>
+      <Nav />
+      <Slider />
+      <Footer />
+    </>
   );
 };
 
