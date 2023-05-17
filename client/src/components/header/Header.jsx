@@ -66,13 +66,13 @@ const Header = () => {
               </li>
 
               <li>
-                <a href="#" className="navbar-link">
+                <a href="/#" className="navbar-link">
                   Farmers
                 </a>
               </li>
 
               <li>
-                <a href="#" className="navbar-link">
+                <a href="/#" className="navbar-link">
                   Exporters
                 </a>
               </li>
@@ -84,7 +84,7 @@ const Header = () => {
               </li> */}
 
               <li>
-                <a href="#" className="navbar-link">
+                <a href="/#" className="navbar-link">
                   Pricing
                 </a>
               </li>
@@ -92,31 +92,31 @@ const Header = () => {
 
             <ul className="navbar-social-list">
               <li>
-                <a href="#" className="navbar-social-link">
+                <a href="/#" className="navbar-social-link">
                   <ion-icon name="logo-twitter"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="#" className="navbar-social-link">
+                <a href="/#" className="navbar-social-link">
                   <ion-icon name="logo-facebook"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="#" className="navbar-social-link">
+                <a href="/#" className="navbar-social-link">
                   <ion-icon name="logo-pinterest"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="#" className="navbar-social-link">
+                <a href="/#" className="navbar-social-link">
                   <ion-icon name="logo-instagram"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="#" class="navbar-social-link">
+                <a href="/#" class="navbar-social-link">
                   <ion-icon name="logo-youtube"></ion-icon>
                 </a>
               </li>
