@@ -25,25 +25,24 @@ const Hero = () => {
                 <a href="/#">Dry</a>
               </div>
 
-              <div className="date-time">
+              {/* <div className="date-time">
                 <div>
                   <ion-icon name="calendar-outline"></ion-icon>
 
-                  {/* <time datetime="2022">2022</time> */}
+                  <time datetime="2022">2022</time>
                 </div>
 
                 <div>
                   <ion-icon name="time-outline"></ion-icon>
 
-                  {/* <time datetime="PT128M">128 min</time> */}
+                  <time datetime="PT128M">128 min</time>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <button className="btn btn-primary">
-              <ion-icon name="play"></ion-icon>
-
               <span>Explore now</span>
+              <ion-icon name="play"></ion-icon>
             </button>
           </div>
         </div>
