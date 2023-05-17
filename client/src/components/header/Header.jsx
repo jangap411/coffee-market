@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.css";
-import { logo } from "../../assets";
+import MenuItems from "./MenuItems";
+// import { logo } from "../../assets";
 // import { IonSearchbar } from "@ionic/react";
 // import {search-outline} from 'ionicons'
 
@@ -58,36 +59,9 @@ const Header = () => {
               </button>
             </div>
 
+            {/* Menu items */}
             <ul className="navbar-list">
-              <li>
-                <a href="./index.html" className="navbar-link">
-                  Home
-                </a>
-              </li>
-
-              <li>
-                <a href="/#" className="navbar-link">
-                  Farmers
-                </a>
-              </li>
-
-              <li>
-                <a href="/#" className="navbar-link">
-                  Exporters
-                </a>
-              </li>
-
-              {/* <li>
-                <a href="#" className="navbar-link">
-                  Web Series
-                </a>
-              </li> */}
-
-              <li>
-                <a href="/#" className="navbar-link">
-                  Pricing
-                </a>
-              </li>
+              <MenuItems section={"navbar"} />
             </ul>
 
             <ul className="navbar-social-list">
