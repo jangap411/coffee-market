@@ -1,6 +1,6 @@
 import React from "react";
 import "./header.css";
-import { logo } from "../../assets";
+// import { logo } from "../../assets";
 // import { IonSearchbar } from "@ionic/react";
 // import {search-outline} from 'ionicons'
 
