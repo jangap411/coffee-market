@@ -57,7 +57,7 @@ const Upcoming = () => {
                   <div className="rating">
                     <ion-icon name="star"></ion-icon>
 
-                    <data>8.5</data>
+                    {/* <data>8.5</data> */}
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@ const Upcoming = () => {
                   <div className="rating">
                     <ion-icon name="star"></ion-icon>
 
-                    <data>NR</data>
+                    {/* <data>NR</data> */}
                   </div>
                 </div>
               </div>
@@ -125,7 +125,7 @@ const Upcoming = () => {
                   <div className="rating">
                     <ion-icon name="star"></ion-icon>
 
-                    <data>NR</data>
+                    {/* <data>NR</data> */}
                   </div>
                 </div>
               </div>
@@ -162,7 +162,7 @@ const Upcoming = () => {
                   <div className="rating">
                     <ion-icon name="star"></ion-icon>
 
-                    <data>GRK</data>
+                    {/* <data>GRK</data> */}
                   </div>
                 </div>
               </div>
