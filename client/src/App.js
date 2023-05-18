@@ -1,18 +1,16 @@
 import "./App.css";
-import Footer from "./components/footer/Footer";
-
-import Header from "./components/header/Header";
-import Hero from "./components/hero/Hero";
-import Upcoming from "./components/upcoming/Upcoming";
+import Dashboard from "./pages/admin/Dashboard";
+import HomePage from "./pages/home/HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <>
-      <Header />
-      <Hero />
-      <Upcoming />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
