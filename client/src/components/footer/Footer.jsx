@@ -1,5 +1,5 @@
 import React from "react";
-import { logo, footer_bottom_img } from "../../assets";
+import { footer_bottom_img } from "../../assets";
 import MenuItems from "../header/MenuItems";
 
 const Footer = () => {

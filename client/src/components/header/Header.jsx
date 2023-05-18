@@ -2,8 +2,7 @@ import React from "react";
 import "./header.css";
 import MenuItems from "./MenuItems";
 import { logo } from "../../assets";
-// import { IonSearchbar } from "@ionic/react";
-// import {search-outline} from 'ionicons'
+
 
 const Header = () => {
   return (
@@ -51,7 +50,7 @@ const Header = () => {
 
           <nav className="navbar" data-navbar>
             <div className="navbar-top">
-              <a href="./index.html" className="logo">
+              <a href="/#" className="logo">
                 <img src="./assets/images/logo.svg" alt="Filmlane logo" />
               </a>
 
