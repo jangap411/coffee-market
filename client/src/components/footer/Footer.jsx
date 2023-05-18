@@ -10,8 +10,11 @@ const Footer = () => {
           <div className="container">
             <div className="footer-brand-wrapper">
               <a href="./index.html" className="logo">
-                {/* <img src={logo} alt="Filmlane logo" /> */}
-                Kofi Maketples
+                <img
+                  src={logo}
+                  alt="kofi maketples logo"
+                  style={{ height: "5rem" }}
+                />
               </a>
 
               <ul className="footer-list">

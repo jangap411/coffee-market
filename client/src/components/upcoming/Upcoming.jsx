@@ -49,13 +49,13 @@ const Upcoming = () => {
                   <div className="badge badge-outline">Green Beans</div>
 
                   <div className="duration">
-                    <ion-icon name="time-outline"></ion-icon>
+                    <ion-icon name="location"></ion-icon>
 
                     <time datetime="PT137M">Morobe</time>
                   </div>
 
                   <div className="rating">
-                    <ion-icon name="star"></ion-icon>
+                    {/* <ion-icon name="star"></ion-icon> */}
 
                     {/* <data>8.5</data> */}
                   </div>
@@ -83,13 +83,13 @@ const Upcoming = () => {
                   <div className="badge badge-outline">Dry Roasted</div>
 
                   <div className="duration">
-                    <ion-icon name="time-outline"></ion-icon>
+                    <ion-icon name="location"></ion-icon>
 
                     <time datetime="PT126M">Highlands</time>
                   </div>
 
                   <div className="rating">
-                    <ion-icon name="star"></ion-icon>
+                    {/* <ion-icon name="star"></ion-icon> */}
 
                     {/* <data>NR</data> */}
                   </div>
@@ -117,13 +117,13 @@ const Upcoming = () => {
                   <div className="badge badge-outline">Green Beans</div>
 
                   <div className="duration">
-                    <ion-icon name="time-outline"></ion-icon>
+                    <ion-icon name="location"></ion-icon>
 
                     <time datetime="">Highlands</time>
                   </div>
 
                   <div className="rating">
-                    <ion-icon name="star"></ion-icon>
+                    {/* <ion-icon name="star"></ion-icon> */}
 
                     {/* <data>NR</data> */}
                   </div>
@@ -154,13 +154,13 @@ const Upcoming = () => {
                   <div className="badge badge-outline">Dry Roasted</div>
 
                   <div className="duration">
-                    <ion-icon name="time-outline"></ion-icon>
+                    <ion-icon name="location"></ion-icon>
 
                     <time datetime="PT107M">Highlands</time>
                   </div>
 
                   <div className="rating">
-                    <ion-icon name="star"></ion-icon>
+                    {/* <ion-icon name="star"></ion-icon> */}
 
                     {/* <data>GRK</data> */}
                   </div>
