@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import upcoming_1 from "./upcoming-1.png";
 import upcoming_2 from "./upcoming-2.png";
 import upcoming_3 from "./upcoming-3.png";

@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 import MenuItems from "./MenuItems";
-// import { logo } from "../../assets";
+import { logo } from "../../assets";
 // import { IonSearchbar } from "@ionic/react";
 // import {search-outline} from 'ionicons'
 
@@ -13,11 +13,12 @@ const Header = () => {
           <div className="overlay" data-overlay></div>
 
           <a href="./index.html" className="logo">
-            {/* <img src={logo} alt="Filmlane logo" /> */}
-            <h2>
+            <img src={logo} alt="Filmlane logo" style={{ height: "7rem" }} />
+            {/* <h2>
               <span style={{ color: "white", padding: 0, margin: 0 }}></span>
               Kofi Maketples
-            </h2>
+            </h2> */}
+            {/* <Logo /> */}
           </a>
 
           <div className="header-actions">
