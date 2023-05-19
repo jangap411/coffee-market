@@ -2,8 +2,7 @@ import React from "react";
 import "./header.css";
 import MenuItems from "./MenuItems";
 import { logo } from "../../assets";
-// import { IonSearchbar } from "@ionic/react";
-// import {search-outline} from 'ionicons'
+
 
 const Header = () => {
   return (
