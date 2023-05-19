@@ -12,7 +12,7 @@ const Header = () => {
         <div className="container">
           <div className="overlay" data-overlay></div>
 
-          <a href="./index.html" className="logo">
+          <a href="/" className="logo">
             <img src={logo} alt="Filmlane logo" style={{ height: "7rem" }} />
             {/* <h2>
               <span style={{ color: "white", padding: 0, margin: 0 }}></span>
@@ -51,7 +51,7 @@ const Header = () => {
 
           <nav className="navbar" data-navbar>
             <div className="navbar-top">
-              <a href="./index.html" className="logo">
+              <a href="/" className="logo">
                 <img src="./assets/images/logo.svg" alt="Filmlane logo" />
               </a>
 

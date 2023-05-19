@@ -4,7 +4,7 @@ const MenuItems = ({ section }) => {
   return (
     <>
       <li>
-        <a href="./index.html" className={`${section}-link`}>
+        <a href="/" className={`${section}-link`}>
           Home
         </a>
       </li>
