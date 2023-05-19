@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-top" style={{ width: "100%" }}>
           <div className="container">
             <div className="footer-brand-wrapper">
-              <a href="./index.html" className="logo">
+              <a href="/" className="logo">
                 <img
                   src={logo}
                   alt="kofi maketples logo"
