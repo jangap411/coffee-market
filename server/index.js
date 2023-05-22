@@ -5,7 +5,6 @@ const PORT = process.env.PORT || 5500;
 const NODE_ENV = process.env.NODE_ENV;
 const http = require("http");
 const morgan = require("morgan");
-// const { connect } = require("./config/database");
 
 // routes
 const { userRoutes } = require("./routes/index");
@@ -25,8 +24,10 @@ app.post("/", (req, res) => {
   res.status(201).json({ status: "success", data: "home routes post" });
 });
 
+/**
+ * start the server
+ */
 const server = http.createServer(app);
 server.listen(PORT, () => {
-  // connect();
   console.log(`\nlistening on port:${PORT}\n`);
 });
