@@ -1,11 +1,11 @@
-import bcrypt from "bcrypt";
-import { DataTypes } from "sequelize";
-import sequelize from "../config/database";
+const bcrypt = require("bcrypt");
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database");
 
 const User = sequelize.define(
   "users",
   {
-    Id: {
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
@@ -46,3 +46,5 @@ const User = sequelize.define(
     timestamps: false,
   }
 );
+
+module.exports = User;
