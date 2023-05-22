@@ -69,7 +69,22 @@ const signin = async (req, res) => {
  */
 const signup = async (req, res) => {
   try {
+    // Extracting name, email, and password from the request body
     const { name, email, password } = req.body;
+
+    // TODO: Perform validation and further processing of signup data
+
+    // TODO: Save user data to the database
+    const newUser = await User.create({ name, email, password });
+
+    if (!newUser) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "Error signing up user" });
+    }
+
+    // response with success message
+    res.status(201).json({ status: "success", message: "user created" });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ status: "error", message: error.message });
