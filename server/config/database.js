@@ -21,9 +21,7 @@ const connect = async () => {
   }
 };
 
-module.exports = {
-  connect,
-  sequelize,
-};
+// invoke db connect
+connect();
 
-// export default sequelize;
+module.exports = sequelize;
