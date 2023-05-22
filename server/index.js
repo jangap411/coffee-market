@@ -14,14 +14,13 @@ if (NODE_ENV !== "production") {
 }
 
 // middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// routes
 app.use(userRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).json({ status: "success", data: "home routes" });
-});
-
-app.post("/", (req, res) => {
-  res.status(201).json({ status: "success", data: "home routes post" });
 });
 
 /**
