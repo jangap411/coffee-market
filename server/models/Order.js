@@ -8,7 +8,21 @@ const Order = sequelize.define("", {
     allowNull: false,
     primaryKey: true,
   },
-  product: {},
+  product_id: {
+    type: DataTypes.INTEGER,
+  },
+  amount: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  addresses: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  status: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
 module.exports = Order;
