@@ -8,9 +8,9 @@ const {
 } = require("../controllers/products");
 const router = express.Router();
 
-router.route("/").get(getAllProducts).post(addNewProduct);
+router.route("/products").get(getAllProducts).post(addNewProduct);
 router
-  .route("/:id")
+  .route("/products/:id")
   .get(getSingleProduct)
   .patch(updateProduct)
   .delete(deleteProduct);
