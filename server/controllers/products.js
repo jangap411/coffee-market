@@ -11,14 +11,14 @@ const Product = require("../models/Product");
 const addNewProduct = async (req, res) => {
   try {
     // Extracting product details from request body
-    const { name, description, price, origin, user_id } = req.body;
+    const { name, description, price, origin, Users_id } = req.body;
 
     const newProduct = await Product.create({
       name,
       description,
       price,
       origin,
-      user_id,
+      Users_id,
     });
 
     // check if product is create
@@ -46,7 +46,7 @@ const updateProduct = async (req, res) => {
     // Extracting product id from request parameter
     const { id } = req.params;
     // Extracting product details from request body
-    const { name, price, description, user_id } = req.body;
+    const { name, price, description, origin, user_id } = req.body;
 
     const product = await Product.findByPk(id);
 
@@ -59,7 +59,7 @@ const updateProduct = async (req, res) => {
 
     //update product
     const updateProduct = await Product.update(
-      { name, price, description, user_id },
+      { name, price, description, origin, user_id },
       {
         where: {
           id,
@@ -75,7 +75,7 @@ const updateProduct = async (req, res) => {
     }
 
     // send success
-    res.status(200).json(updateProduct);
+    res.status(200).json({ updateProduct });
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }
@@ -156,7 +156,7 @@ const deleteProduct = async (req, res) => {
     }
 
     // delete product from db
-    await Employee.destroy({ where: { id: id } });
+    await Product.destroy({ where: { id: id } });
 
     res.status(200).json(product);
   } catch (error) {
