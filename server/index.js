@@ -7,7 +7,12 @@ const http = require("http");
 const morgan = require("morgan");
 
 // import routes
-const { userRoutes, productRoutes, ordersRoutes } = require("./routes/index");
+const {
+  userRoutes,
+  productRoutes,
+  ordersRoutes,
+  cartRoutes,
+} = require("./routes/index");
 
 // check node environment
 if (NODE_ENV !== "production") {
@@ -18,7 +23,7 @@ if (NODE_ENV !== "production") {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // routes
-app.use("/api/v1", [userRoutes, productRoutes, ordersRoutes]);
+app.use("/api/v1", [userRoutes, productRoutes, ordersRoutes, cartRoutes]);
 
 app.get("/", (req, res) => {
   res.status(200).json({ status: "success", data: "home routes" });
