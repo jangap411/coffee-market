@@ -6,8 +6,8 @@ const NODE_ENV = process.env.NODE_ENV;
 const http = require("http");
 const morgan = require("morgan");
 
-// routes
-const { userRoutes, productRoutes } = require("./routes/index");
+// import routes
+const { userRoutes, productRoutes, ordersRoutes } = require("./routes/index");
 
 // check node environment
 if (NODE_ENV !== "production") {
@@ -18,7 +18,7 @@ if (NODE_ENV !== "production") {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // routes
-app.use("/api/v1", [userRoutes, productRoutes]);
+app.use("/api/v1", [userRoutes, productRoutes, ordersRoutes]);
 
 app.get("/", (req, res) => {
   res.status(200).json({ status: "success", data: "home routes" });
