@@ -15,7 +15,7 @@ const getOrders = async (req, res) => {
     if (!orders) {
       return res
         .status(404)
-        .json({ status: "error", message: "Orders not found" });
+        .json({ status: "error", message: "-- Orders not found --" });
     }
 
     res.status(200).json(orders);
@@ -114,8 +114,62 @@ const destroyOrder = async (req, res) => {
   }
 };
 
+/**
+ * PATCH update order function
+ *
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns - A JSON order object
+ */
+const updateOrder = async (req, res) => {
+  try {
+    // extract order id from request params
+    const { id } = req.params;
+
+    // Extract order details from request body
+    const { address, amount, status, products_id, user_id } = req.body;
+
+    // check order id
+    const checkOrder = await Order.findByPk(id);
+    if (!checkOrder) {
+      return res
+        .status(404)
+        .json({ status: "error", message: "order not found" });
+    }
+
+    // update order
+    const order = await Order.update(
+      {
+        address,
+        amount,
+        status,
+        products_id,
+        user_id,
+      },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+
+    // check creation was successful
+    if (!order) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "error creating order." });
+    }
+
+    res.status(201).json(order);
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
 module.exports = {
   getOrders,
   getOrder,
   createOrder,
+  destroyOrder,
+  updateOrder,
 };
