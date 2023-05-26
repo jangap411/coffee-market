@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 5500;
 const NODE_ENV = process.env.NODE_ENV;
 const http = require("http");
 const morgan = require("morgan");
+const cors = require("cors");
 
 // import routes
 const {
@@ -22,6 +23,7 @@ if (NODE_ENV !== "production") {
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 // routes
 app.use("/api/v1", [userRoutes, productRoutes, ordersRoutes, cartRoutes]);
 
