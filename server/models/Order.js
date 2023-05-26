@@ -10,14 +10,14 @@ const Order = sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
-    product_id: {
+    products_id: {
       type: DataTypes.INTEGER,
     },
     amount: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    addresses: {
+    address: {
       type: DataTypes.STRING,
       allowNull: false,
     },

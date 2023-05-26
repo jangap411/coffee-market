@@ -3,7 +3,7 @@ const sequelize = require("../config/database");
 const User = require("./User");
 
 const Product = sequelize.define(
-  "Products",
+  "products",
   {
     id: {
       type: DataTypes.INTEGER,
