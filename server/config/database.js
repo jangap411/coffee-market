@@ -10,8 +10,6 @@ const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWD, {
   dialect: "mysql",
 });
 
-console.log("\nTesting database connection...\n");
-
 const connect = async () => {
   try {
     await sequelize.authenticate();
@@ -23,5 +21,6 @@ const connect = async () => {
 
 // invoke db connect
 connect();
+console.log("\nTesting database connection...\n");
 
 module.exports = sequelize;
