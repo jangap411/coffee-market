@@ -10,6 +10,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
  *
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @access - public
  * @returns
  */
 const signin = async (req, res) => {
@@ -63,7 +64,7 @@ const signin = async (req, res) => {
 
 /**
  * User signup function
- *
+ *@access - public
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  */
