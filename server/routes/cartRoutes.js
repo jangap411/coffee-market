@@ -1,13 +1,29 @@
 const express = require("express");
 const {
-  getCartProducts,
-  getCartProduct,
-  createCartProducts,
+  updateCart,
+  createCart,
+  deleteCart,
+  getUserCart,
+  getAllUserCart,
 } = require("../controllers/cart");
 const router = express.Router();
-// const authHandler = require("../middlewares/authHandler");
+const {
+  verifyToken,
+  verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
+} = require("../middlewares/verifyToken");
 
-router.route("/cart").get(getCartProducts).post(createCartProducts);
-router.route("/cart/:id").get(getCartProduct);
+router
+  .route("/cart")
+  .get(getAllUserCart)
+  .post(verifyToken, createCart)
+  .get(verifyTokenAndAdmin, getAllUserCart);
+router
+  .route("/cart/:id")
+  .patch(verifyTokenAndAuthorization, updateCart)
+  .delete(verifyTokenAndAuthorization, deleteCart);
+router.route("/find/:userId").get(verifyTokenAndAuthorization, getUserCart);
+
+// .get(getCartProduct)
 
 module.exports = router;

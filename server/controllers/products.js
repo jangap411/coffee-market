@@ -2,7 +2,7 @@ const Product = require("../models/Product");
 
 /**
  * Add new production function
- *
+ * @access - authenticated user with admin prevlge
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @throws {Error} - When request fails
@@ -11,32 +11,34 @@ const Product = require("../models/Product");
 const addNewProduct = async (req, res) => {
   try {
     // Extracting product details from request body
-    const { name, description, price, origin, Users_id } = req.body;
+    const { title, desc, img, categories, size, price, inStock } = req.body;
 
-    const newProduct = await Product.create({
-      name,
-      description,
+    const newProduct = new Product({
+      title,
+      desc,
+      img,
+      categories,
+      size,
       price,
-      origin,
-      Users_id,
+      inStock,
     });
 
     // check if product is create
-    if (!newProduct) {
-      return res
-        .status(400)
-        .json({ status: "error", message: "Error creating product" });
+    const savedProduct = await newProduct.save();
+    if (!savedProduct) {
+      return res.status(400).json("Error creating product");
     }
 
-    res.status(201).json(newProduct);
+    res.status(201).json(savedProduct);
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }
 };
 
 /**
- * Update product function
+ * PATCH Update product function
  *
+ * @access - authenticated admin user
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @throws {Error} - When request fails
@@ -46,96 +48,32 @@ const updateProduct = async (req, res) => {
     // Extracting product id from request parameter
     const { id } = req.params;
     // Extracting product details from request body
-    const { name, price, description, origin, user_id } = req.body;
+    const { title, desc, img, categories, size, price, inStock } = req.body;
 
-    const product = await Product.findByPk(id);
-
-    // if product id not exists
-    if (!product) {
-      return res
-        .status(404)
-        .json({ status: "error", message: "Product not found" });
-    }
-
-    //update product
-    const updateProduct = await Product.update(
-      { name, price, description, origin, user_id },
+    const product = await Product.findByIdAndUpdate(
+      id,
       {
-        where: {
-          id,
-        },
-      }
+        $set: { title, desc, img, categories, size, price, inStock },
+      },
+      { new: true }
     );
 
     // check update
-    if (!updateProduct) {
-      res
-        .status(400)
-        .json({ status: "error", message: "error updating product" });
+    if (!product) {
+      res.status(400).json("error updating product");
     }
 
     // send success
-    res.status(200).json({ updateProduct });
+    res.status(200).json({ product });
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }
 };
 
 /**
- * Get All product function
+ * DELETE a product function
  *
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- * @throws {Error} - When request fails
- *
- */
-const getAllProducts = async (req, res) => {
-  try {
-    const products = await Product.findAll();
-
-    if (!products) {
-      return res
-        .status(404)
-        .json({ status: "error", message: "Products not found" });
-    }
-
-    res.status(200).json(products);
-  } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
-  }
-};
-
-/**
- * Get a single product function
- *
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- * @throws {Error} - When request fails
- *
- */
-const getSingleProduct = async (req, res) => {
-  try {
-    // Extracting product id from request parameter
-    const { id } = req.params;
-
-    const product = await Product.findByPk(id);
-
-    // if product id not exists
-    if (!product) {
-      return res
-        .status(404)
-        .json({ status: "error", message: "Product not found" });
-    }
-
-    res.status(200).json(product);
-  } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
-  }
-};
-
-/**
- * Delete a product function
- *
+ * @access - authenticated admin user
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @throws {Error} - When request fails
@@ -146,21 +84,75 @@ const deleteProduct = async (req, res) => {
     // Extracting product id from request parameter
     const { id } = req.params;
 
-    const product = await Product.findByPk(id);
+    const product = await Product.findByIdAndDelete(id);
 
     // if product id not exists
     if (!product) {
-      return res
-        .status(404)
-        .json({ status: "error", message: "Product not found" });
+      return res.status(400).json("Error deleting product");
     }
 
-    // delete product from db
-    await Product.destroy({ where: { id: id } });
+    // send success
+    res.status(200).json("Product Deleted");
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
+/**
+ * GET a single product function
+ * /find/:id
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @throws {Error} - When request fails
+ *
+ */
+const getSingleProduct = async (req, res) => {
+  try {
+    // Extracting product id from request parameter
+    const { id } = req.params;
+
+    const product = await Product.findById(id);
+
+    // if product id not exists
+    if (!product) {
+      return res.status(404).json("Product not found");
+    }
 
     res.status(200).json(product);
   } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
+    res.status(500).json(error.message);
+  }
+};
+
+/**
+ * GET All product function
+ *
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @throws {Error} - When request fails
+ *
+ */
+const getAllProducts = async (req, res) => {
+  const qNew = req.query.new;
+  const qCategory = req.query.category;
+  try {
+    let products;
+
+    if (qNew) {
+      products = await Product.find().sort({ createdAt: -1 }).limit(1);
+    } else if (qCategory) {
+      products = await Product.find({
+        categories: {
+          $in: [qCategory],
+        },
+      });
+    } else {
+      products = await Product.find();
+    }
+
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 

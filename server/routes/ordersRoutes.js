@@ -1,19 +1,27 @@
 const express = require("express");
+const router = express.Router();
 const {
+  getUserOrders,
   getOrders,
   createOrder,
-  getOrder,
   destroyOrder,
   updateOrder,
 } = require("../controllers/orders");
-const router = express.Router();
+const {
+  verifyToken,
+  verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
+} = require("../middlewares/verifyToken");
 
 // routes
-router.route("/orders").get(getOrders).post(createOrder);
 router
-  .route("/orders/:id")
-  .get(getOrder)
-  .delete(destroyOrder)
-  .patch(updateOrder);
+  .route("/order")
+  .post(verifyToken, createOrder)
+  .get(verifyTokenAndAdmin, getOrders);
 
+router
+  .route("/order/:id")
+  .patch(verifyTokenAndAdmin, updateOrder)
+  .delete(verifyTokenAndAdmin, destroyOrder);
+router.route("/order/:userId").get(verifyTokenAndAuthorization, getUserOrders);
 module.exports = router;

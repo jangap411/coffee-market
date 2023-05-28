@@ -1,31 +1,45 @@
 const Cart = require("../models/Cart");
+const { verifyToken } = require("../middlewares/verifyToken");
 
 /**
- * Get all cart products function
- * @access - authenticate users
+ * POOST create cart products function
+ * @access - authenticated users
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @returns - An array of order object
  */
-const getCartProducts = async (req, res) => {
+const createCart = async (req, res) => {
   try {
-    res.status(200).json({ status: "success", message: "getCartProducts" });
+    const newCart = new Cart(req.body);
+    const saveCart = await newCart.save();
+
+    if (!saveCart) {
+      res.status(400).json("Error saving cart");
+    }
+
+    res.status(201).json(saveCart);
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }
 };
 
 /**
- * Get a cart product function
- * @access - authenticate users
+ * PATCH update cart  function
+ * @access - authenticated users
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @returns - An array of order object
  */
-const getCartProduct = async (req, res) => {
+const updateCart = async (req, res) => {
   try {
-    const { user_id } = req.params;
-    const cart = await Cart.findAll({ where: { user_id } });
+    const { id } = req.params;
+    const cart = await CartfindByIdAndUpdate(
+      id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
 
     if (!cart) {
       return res
@@ -40,35 +54,93 @@ const getCartProduct = async (req, res) => {
 };
 
 /**
- * POST create cart products function
- * @access - authenticate users
+ * DELETE destroy cart  function
+ * @access - authenticated users
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @returns - An array of order object
  */
-const createCartProducts = async (req, res) => {
+const deleteCart = async (req, res) => {
   try {
     // Extract details from the request object
-    const { product_id, user_id } = req.body;
+    const { id } = req.body;
 
-    const cart = await Cart.create({ product_id, user_id });
+    const cart = await Cart.findByIdAndDelete(id);
 
-    // check if cart is created
+    // check if cart is delete
     if (!cart) {
       return res
         .status(400)
-        .json({ status: "error", message: "Error creating cart" });
+        .json({ status: "error", message: "Error destroying cart" });
     }
 
     // send success
-    res.status(201).json();
+    res.status(201).json("Cart has been deleted");
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
+/**
+ * GET user cart  function
+ * @access - authenticated users
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns - An array of order object
+ */
+const getUserCart = async (req, res) => {
+  try {
+    // Extract details from the request object
+    const { userId } = req.body;
+
+    const cart = await Cart.findOne({ userId });
+
+    // check if cart is available
+    if (!cart) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "Error getting cart" });
+    }
+
+    // send success
+    res.status(201).json(cart);
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
+/**
+ * GET all cart function
+ * @access - authenticated admin users
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns - An array of order object
+ */
+const getAllUserCart = async (req, res) => {
+  try {
+    // Extract details from the request object
+    const { userId } = req.body;
+
+    const cart = await Cart.find();
+
+    // check if cart is available
+    if (!cart) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "Error getting cart" });
+    }
+
+    // send success
+    res.status(201).json(cart);
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }
 };
 
 module.exports = {
-  getCartProduct,
-  getCartProducts,
-  createCartProducts,
+  updateCart,
+  createCart,
+  deleteCart,
+  getUserCart,
+  getAllUserCart,
 };

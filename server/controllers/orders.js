@@ -1,59 +1,8 @@
 const Order = require("../models/Order");
 
 /**
- * Get all orders function
- *
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- * @returns - An array of order object
- */
-
-const getOrders = async (req, res) => {
-  try {
-    const orders = await Order.findAll();
-
-    if (!orders) {
-      return res
-        .status(404)
-        .json({ status: "error", message: "-- Orders not found --" });
-    }
-
-    res.status(200).json(orders);
-  } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
-  }
-};
-
-/**
- * Get a single order function
- *
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- * @returns - A JSON order object
- */
-
-const getOrder = async (req, res) => {
-  try {
-    // Extract id request params
-    const { id } = req.params;
-
-    const order = await Order.findByPk(id);
-
-    if (!order) {
-      return res
-        .status(404)
-        .json({ status: "error", message: "Order not found" });
-    }
-
-    res.status(200).json(order);
-  } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
-  }
-};
-
-/**
  * POST create order function
- *
+ * @access - Signin users
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @returns - A JSON order object
@@ -61,18 +10,13 @@ const getOrder = async (req, res) => {
 const createOrder = async (req, res) => {
   try {
     // Extract order details from request body
-    const { address, amount, status, products_id, user_id } = req.body;
+    const { userId, products, amount, address, status } = req.body;
 
     // create order
-    const order = await Order.create({
-      address,
-      amount,
-      status,
-      products_id,
-      user_id,
-    });
+    const newOrder = new Order({ userId, products, amount, address, status });
 
-    // check creation was successful
+    // check save was successful
+    const order = await newOrder.save();
     if (!order) {
       return res
         .status(400)
@@ -80,35 +24,6 @@ const createOrder = async (req, res) => {
     }
 
     res.status(201).json(order);
-  } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
-  }
-};
-
-/**
- * DELETE a single order function
- *
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- * @returns - A JSON order object
- */
-
-const destroyOrder = async (req, res) => {
-  try {
-    // Extract id request params
-    const { id } = req.params;
-
-    const order = await Order.findByPk(id);
-
-    if (!order) {
-      return res
-        .status(404)
-        .json({ status: "error", message: "Order not found" });
-    }
-
-    await Order.destroy({ where: { id: id } });
-
-    res.status(200).json(order);
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }
@@ -127,48 +42,112 @@ const updateOrder = async (req, res) => {
     const { id } = req.params;
 
     // Extract order details from request body
-    const { address, amount, status, products_id, user_id } = req.body;
+    const { userId, products, amount, address, status } = req.body;
 
-    // check order id
-    const checkOrder = await Order.findByPk(id);
-    if (!checkOrder) {
-      return res
-        .status(404)
-        .json({ status: "error", message: "order not found" });
-    }
-
-    // update order
-    const order = await Order.update(
+    // check order by id and update
+    const order = await Order.findByIdAndUpdate(
+      id,
       {
-        address,
-        amount,
-        status,
-        products_id,
-        user_id,
-      },
-      {
-        where: {
-          id: id,
+        $set: {
+          userId,
+          products,
+          amount,
+          address,
+          status,
         },
-      }
+      },
+      { new: true }
     );
 
-    // check creation was successful
     if (!order) {
-      return res
-        .status(400)
-        .json({ status: "error", message: "error creating order." });
+      return res.status(400).json("Error updating order");
     }
 
     res.status(201).json(order);
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+};
+
+/**
+ * DELETE a single order function
+ * @access - authenticated users
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns - A JSON order object
+ */
+
+const destroyOrder = async (req, res) => {
+  try {
+    // Extract id request params
+    const { id } = req.params;
+
+    // find and delete by order id
+    const order = await Order.findByIdAndDelete(id);
+
+    if (!order) {
+      return res.status(404).json("Error deleting order");
+    }
+
+    res.status(200).json("Order deleted");
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
+/**
+ * Get user orders function
+ *
+ * @access - authenticated user
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns - An array of order object
+ */
+
+const getUserOrders = async (req, res) => {
+  try {
+    // Extract user from params
+    const { userId } = req.params;
+
+    const orders = await Order.find({ userId });
+
+    if (!orders) {
+      return res.status(404).json("-- Orders not found --");
+    }
+
+    res.status(200).json(orders);
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
+/**
+ * Get a single order function
+ *
+ * @access - authenticated users with admin prevs
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns - A JSON order object
+ */
+
+const getOrders = async (req, res) => {
+  try {
+    // calling the find method on the db
+    const order = await Order.find();
+
+    if (!order) {
+      return res.status(404).json("Order not found");
+    }
+
+    res.status(200).json(order);
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }
 };
 
 module.exports = {
+  getUserOrders,
   getOrders,
-  getOrder,
   createOrder,
   destroyOrder,
   updateOrder,
