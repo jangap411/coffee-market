@@ -11,6 +11,8 @@ Our marketplace app is a platform that connects coffee farmers and exporters wit
 ## Getting Started
 
 1. Clone this repository
-2. Install dependencies with `npm install`
-3. Start the server with `npm start`
-4. Access the API at `http://localhost:3000/api`
+2. Change directory into `server/` and `client/`
+3. Install dependencies with `npm install`
+4. Create a `.env` file and create environment variable as shown in the `example.env` file.
+5. Start the server with `npm start`
+6. Access the API at `http://localhost:3000/api`
