@@ -6,7 +6,7 @@ Our marketplace app is a platform that connects coffee farmers and exporters wit
 
 - Node.js v18.3.0 or later
 - Express v4.18.2 or later
-- Sequelize v6.31.1 or later
+- Mongoose 7.2.0 or later
 
 ## Getting Started
 
