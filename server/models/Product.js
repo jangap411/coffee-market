@@ -1,42 +1,16 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
-const User = require("./User");
+const mongoose = require("mongoose");
 
-const Product = sequelize.define(
-  "products",
+const ProductSchema = new mongoose.Schema(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      allowNull: false,
-      primaryKey: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    origin: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    price: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
+    title: { type: String, required: true, unique: true },
+    desc: { type: String, required: true },
+    img: { type: String, required: true },
+    categories: { type: Array },
+    size: { type: Array },
+    price: { type: Number, required: true },
+    inStock: { type: Boolean, default: true },
   },
-  { timestamps: false }
+  { timestamps: true }
 );
 
-/**
- * Creating Table Association between the
- * User Table & Product Table
- */
-User.hasMany(Product, { foreignKey: "Users_id" });
-Product.belongsTo(User, { foreignKey: "Users_id" });
-
-// export
-module.exports = Product;
+module.exports = mongoose.model("Product", ProductSchema);
