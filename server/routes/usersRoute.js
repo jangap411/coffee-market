@@ -16,7 +16,7 @@ router.route("/users").get(verifyTokenAndAdmin, getAllUsers);
 router.route("/users/find/:id").get(verifyTokenAndAdmin, getUser);
 router
   .route("/users/:id")
-  .get(verifyTokenAndAuthorization, updateUser)
+  .patch(verifyTokenAndAuthorization, updateUser)
   .delete(verifyTokenAndAuthorization, destroyUser);
 router.route("/users/stats").get(verifyTokenAndAdmin, getUsersStats);
 
