@@ -20,7 +20,13 @@ const Copyright = (props) => {
 			{...props}
 		>
 			{"Copyright © "}
-			<Link color="inherit" href="https://kofimaketples.com">
+			<Link
+				color="inherit"
+				href="/"
+				sx={{
+					textDecoration: "none",
+				}}
+			>
 				Kofi Maket Ples
 			</Link>{" "}
 			{new Date().getFullYear()}
@@ -28,8 +34,6 @@ const Copyright = (props) => {
 		</Typography>
 	);
 };
-
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
@@ -124,12 +128,24 @@ const SignIn = () => {
 							</Button>
 							<Grid container>
 								<Grid item xs>
-									<Link href="#" variant="body2">
+									<Link
+										href=""
+										variant="body2"
+										sx={{
+											textDecoration: "none",
+										}}
+									>
 										Forgot password?
 									</Link>
 								</Grid>
 								<Grid item>
-									<Link href="#" variant="body2">
+									<Link
+										href="/signup"
+										variant="body2"
+										sx={{
+											textDecoration: "none",
+										}}
+									>
 										{"Don't have an account? Sign Up"}
 									</Link>
 								</Grid>

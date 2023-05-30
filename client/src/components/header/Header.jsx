@@ -40,7 +40,9 @@ const Header = () => {
 							</select>
 						</div>
 
-						<button className="btn btn-primary">Sign in</button>
+						<button className="btn btn-primary" href="/signin">
+							Sign in
+						</button>
 					</div>
 
 					<button className="menu-open-btn" data-menu-open-btn>

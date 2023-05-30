@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { logo } from "../../assets";
 
-function Copyright(props) {
+const Copyright = (props) => {
 	return (
 		<Typography
 			variant="body2"
@@ -18,16 +18,19 @@ function Copyright(props) {
 			{...props}
 		>
 			{"Copyright © "}
-			<Link color="inherit" href="https://kofimaketples.com/">
+			<Link
+				color="inherit"
+				href="/"
+				sx={{
+					textDecoration: "none",
+				}}
+			>
 				Kofi Maket Ples
-			</Link>{" "}
+			</Link>
 			{new Date().getFullYear()}
-			{"."}
 		</Typography>
 	);
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
+};
 
 const defaultTheme = createTheme();
 
@@ -56,7 +59,7 @@ const SignUp = () => {
 					{/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
 						<LockOutlinedIcon />
 					</Avatar> */}
-					<img src={logo} alt="kofi logo" />
+					<img src={logo} alt="kofi logo" height={"100px"} />
 					<Typography component="h1" variant="h5">
 						Sign Up
 					</Typography>
@@ -120,7 +123,13 @@ const SignUp = () => {
 						</Button>
 						<Grid container justifyContent="flex-end">
 							<Grid item>
-								<Link href="#" variant="body2">
+								<Link
+									href="/signin"
+									variant="body2"
+									sx={{
+										textDecoration: "none",
+									}}
+								>
 									Already have an account? Sign in
 								</Link>
 							</Grid>
