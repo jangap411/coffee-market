@@ -24,7 +24,7 @@ const Upcoming = () => {
 								</a>
 
 								<div className="title-wrapper">
-									<a href="./movie-details.html">
+									<a href="/#">
 										<h3 className="card-title">New Guinea Arona Coffee</h3>
 									</a>
 
@@ -47,14 +47,14 @@ const Upcoming = () => {
 
 						<li>
 							<div className="movie-card">
-								<a href="./movie-details.html">
+								<a href="/#">
 									<figure className="card-banner">
 										<img src={dry_beans} alt="New Guinea Arona Coffee" />
 									</figure>
 								</a>
 
 								<div className="title-wrapper">
-									<a href="./movie-details.html">
+									<a href="/#">
 										<h3 className="card-title">New Guinea Arona Coffee</h3>
 									</a>
 
@@ -70,25 +70,21 @@ const Upcoming = () => {
 										<time datetime="PT126M">Highlands</time>
 									</div>
 
-									<div className="rating">
-										{/* <ion-icon name="star"></ion-icon> */}
-
-										{/* <data>NR</data> */}
-									</div>
+									<div className="rating"></div>
 								</div>
 							</div>
 						</li>
 
 						<li>
 							<div className="movie-card">
-								<a href="./movie-details.html">
+								<a href="/#">
 									<figure className="card-banner">
 										<img src={hero_bg} alt="Memory movie poster" />
 									</figure>
 								</a>
 
 								<div className="title-wrapper">
-									<a href="./movie-details.html">
+									<a href="/#">
 										<h3 className="card-title">New Guinea Arona Coffee</h3>
 									</a>
 
@@ -104,11 +100,7 @@ const Upcoming = () => {
 										<time datetime="">Highlands</time>
 									</div>
 
-									<div className="rating">
-										{/* <ion-icon name="star"></ion-icon> */}
-
-										{/* <data>NR</data> */}
-									</div>
+									<div className="rating"></div>
 								</div>
 							</div>
 						</li>
@@ -125,7 +117,7 @@ const Upcoming = () => {
 								</a>
 
 								<div className="title-wrapper">
-									<a href="./movie-details.html">
+									<a href="/#">
 										<h3 className="card-title">New Guinea Arona Coffee</h3>
 									</a>
 
