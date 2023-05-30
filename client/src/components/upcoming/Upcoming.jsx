@@ -17,7 +17,7 @@ const Upcoming = () => {
 					<ul className="movies-list  has-scrollbar">
 						<li>
 							<div className="movie-card">
-								<a href="./movie-details.html">
+								<a href="/#">
 									<figure className="card-banner">
 										<img src={hero_bg} alt="New Guinea Arona Coffee" />
 									</figure>
