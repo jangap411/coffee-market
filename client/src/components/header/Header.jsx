@@ -42,7 +42,6 @@ const Header = () => {
 							</button>
 						</div>
 
-						{/* Menu items */}
 						<ul className="navbar-list">
 							<MenuItems section={"navbar"} />
 						</ul>

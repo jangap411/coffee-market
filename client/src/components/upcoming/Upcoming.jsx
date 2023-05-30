@@ -1,4 +1,3 @@
-import React from "react";
 import { hero_bg, dry_beans } from "../../assets";
 
 const Upcoming = () => {
@@ -79,7 +78,7 @@ const Upcoming = () => {
 							<div className="movie-card">
 								<a href="/#">
 									<figure className="card-banner">
-										<img src={hero_bg} alt="Memory movie poster" />
+										<img src={hero_bg} alt="beans" />
 									</figure>
 								</a>
 
@@ -109,10 +108,7 @@ const Upcoming = () => {
 							<div className="movie-card">
 								<a href="/#">
 									<figure className="card-banner">
-										<img
-											src={dry_beans}
-											alt="The Unbearable Weight of Massive Talent movie poster"
-										/>
+										<img src={dry_beans} alt="dry beans" />
 									</figure>
 								</a>
 
