@@ -107,7 +107,7 @@ const Upcoming = () => {
 
 						<li>
 							<div className="movie-card">
-								<a href="./movie-details.html">
+								<a href="/#">
 									<figure className="card-banner">
 										<img
 											src={dry_beans}
