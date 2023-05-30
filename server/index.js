@@ -6,6 +6,7 @@ const NODE_ENV = process.env.NODE_ENV;
 const http = require("http");
 const morgan = require("morgan");
 const cors = require("cors");
+const mongoose = require("mongoose");
 
 // import routes
 const {
@@ -13,6 +14,7 @@ const {
   productRoutes,
   ordersRoutes,
   cartRoutes,
+  authRoutes,
 } = require("./routes/index");
 
 // check node environment
@@ -25,16 +27,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 // routes
-app.use("/api/v1", [userRoutes, productRoutes, ordersRoutes, cartRoutes]);
+app.use("/api/v1", [
+  userRoutes,
+  productRoutes,
+  ordersRoutes,
+  cartRoutes,
+  authRoutes,
+]);
 
 app.get("/", (req, res) => {
   res.status(200).json({ status: "success", data: "home routes" });
 });
 
 /**
- * start the server
+ * Connecting to database && start server
  */
 const server = http.createServer(app);
-server.listen(PORT, () => {
-  console.log(`\nlistening on port:${PORT}\n`);
-});
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("\nMongo DB Connected!");
+    server.listen(PORT, () => {
+      console.log(`Server listening on port:${PORT}\n`);
+    });
+  })
+  .catch((err) => {
+    console.log("Error", err);
+  });
