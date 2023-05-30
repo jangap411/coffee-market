@@ -2,6 +2,10 @@
 
 Our marketplace app is a platform that connects coffee farmers and exporters with potential buyers worldwide.
 
+Live Demo
+[Kofi Maketples](https://kofi-maketples.netlify.app/)
+
+
 ## Requirements
 
 - Node.js v18.3.0 or later
