@@ -1,5 +1,5 @@
-import React from "react";
 import "./header.css";
+import { Link } from "@mui/material";
 import MenuItems from "./MenuItems";
 import { logo } from "../../assets";
 
@@ -12,37 +12,19 @@ const Header = () => {
 
 					<a href="/" className="logo">
 						<img src={logo} alt="kofi logo" style={{ height: "7rem" }} />
-						{/* <h2>
-              <span style={{ color: "white", padding: 0, margin: 0 }}></span>
-              Kofi Maketples
-            </h2> */}
-						{/* <Logo /> */}
 					</a>
 
 					<div className="header-actions">
-						<button className="search-btn">
-							{/* <IonIcon icon="search-outline"></IonIcon> */}
-							{/* <IonSearchbar></IonSearchbar> */}
-
-							<ion-icon name="search-outline"></ion-icon>
-						</button>
-
-						<div className="lang-wrapper">
-							<label for="language">
-								<ion-icon name="globe-outline"></ion-icon>
-							</label>
-
-							<select name="language" id="language">
-								<option value="en">EN</option>
-								<option value="au">AU</option>
-								<option value="ar">AR</option>
-								<option value="tu">TU</option>
-							</select>
-						</div>
-
-						<button className="btn btn-primary" href="/signin">
+						<Link
+							className="btn btn-primary"
+							href="/signin"
+							sx={{
+								textDecoration: "none",
+								color: "white",
+							}}
+						>
 							Sign in
-						</button>
+						</Link>
 					</div>
 
 					<button className="menu-open-btn" data-menu-open-btn>
