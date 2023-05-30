@@ -50,32 +50,6 @@ const Footer = () => {
 									</a>
 								</li>
 							</ul>
-							{/* 
-							<ul className="social-list">
-								<li>
-									<a href="/#" className="social-link">
-										<ion-icon name="logo-facebook"></ion-icon>
-									</a>
-								</li>
-
-								<li>
-									<a href="/#" className="social-link">
-										<ion-icon name="logo-twitter"></ion-icon>
-									</a>
-								</li>
-
-								<li>
-									<a href="/#" className="social-link">
-										<ion-icon name="logo-pinterest"></ion-icon>
-									</a>
-								</li>
-
-								<li>
-									<a href="/#" className="social-link">
-										<ion-icon name="logo-linkedin"></ion-icon>
-									</a>
-								</li>
-							</ul> */}
 						</div>
 					</div>
 				</div>
