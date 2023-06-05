@@ -33,7 +33,7 @@ const createCart = async (req, res) => {
 const updateCart = async (req, res) => {
   try {
     const { id } = req.params;
-    const cart = await CartfindByIdAndUpdate(
+    const cart = await Cart.findByIdAndUpdate(
       id,
       {
         $set: req.body,
