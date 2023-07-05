@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -9,17 +10,32 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { logo } from "../../assets";
 import Copyright from "../../components/Copyright";
+import { axiosInstance } from "../../utils/axiosHeader";
 
 const defaultTheme = createTheme();
 
 const SignUp = () => {
-  const handleSubmit = (event) => {
+  // state
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    const user = {
+      username,
+      name,
+      password,
+      email,
+    };
+    try {
+      const { data } = await axiosInstance.post("/register", user);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -47,23 +63,25 @@ const SignUp = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
+                  autoComplete="full-name"
+                  name="fullName"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="fullName"
+                  label="Full Name"
                   autoFocus
+                  onChange={(e) => setName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
+                  id="username"
+                  label="Your username"
+                  name="username"
                   autoComplete="family-name"
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -74,6 +92,7 @@ const SignUp = () => {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -84,7 +103,18 @@ const SignUp = () => {
                   label="Password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="confirm Password"
+                  type="password"
+                  id="confirmPassword"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Grid>
             </Grid>
