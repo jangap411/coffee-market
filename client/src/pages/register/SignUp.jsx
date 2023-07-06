@@ -24,6 +24,13 @@ const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (confirmPassword !== password) {
+      return alert(
+        "The passwords do not match. \nPlease check the passwords you entered and try again"
+      );
+    }
+
     const user = {
       username,
       name,
