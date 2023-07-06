@@ -54,3 +54,5 @@ mongoose
   .catch((err) => {
     console.log("Error", err);
   });
+
+module.exports = server;

@@ -1,177 +1,143 @@
-import React from "react";
 import { hero_bg, dry_beans } from "../../assets";
 
 const Upcoming = () => {
-  return (
-    <>
-      <section className="upcoming">
-        <div className="container">
-          <div className="flex-wrapper">
-            <div className="title-wrapper">
-              <p className="section-subtitle">Explore</p>
+	return (
+		<>
+			<section className="upcoming">
+				<div className="container">
+					<div className="flex-wrapper">
+						<div className="title-wrapper">
+							<p className="section-subtitle">Explore</p>
 
-              <h2 className="h2 section-title">What's New Today</h2>
-            </div>
+							<h2 className="h2 section-title">What's New Today</h2>
+						</div>
+					</div>
 
-            <ul className="filter-list">
-              <li>
-                <button className="filter-btn">Dry Beans</button>
-              </li>
+					<ul className="movies-list  has-scrollbar">
+						<li>
+							<div className="movie-card">
+								<a href="/#">
+									<figure className="card-banner">
+										<img src={hero_bg} alt="New Guinea Arona Coffee" />
+									</figure>
+								</a>
 
-              <li>
-                <button className="filter-btn">Green Beans</button>
-              </li>
+								<div className="title-wrapper">
+									<a href="/#">
+										<h3 className="card-title">New Guinea Arona Coffee</h3>
+									</a>
 
-              <li>
-                <button className="filter-btn">Blend</button>
-              </li>
-            </ul>
-          </div>
+									<time datetime="2022">2023</time>
+								</div>
 
-          <ul className="movies-list  has-scrollbar">
-            <li>
-              <div className="movie-card">
-                <a href="./movie-details.html">
-                  <figure className="card-banner">
-                    <img src={hero_bg} alt="New Guinea Arona Coffee" />
-                  </figure>
-                </a>
+								<div className="card-meta">
+									<div className="badge badge-outline">Green Beans</div>
 
-                <div className="title-wrapper">
-                  <a href="./movie-details.html">
-                    <h3 className="card-title">New Guinea Arona Coffee</h3>
-                  </a>
+									<div className="duration">
+										<ion-icon name="location"></ion-icon>
 
-                  <time datetime="2022">2022</time>
-                </div>
+										<time datetime="PT137M">Morobe</time>
+									</div>
 
-                <div className="card-meta">
-                  <div className="badge badge-outline">Green Beans</div>
+									<div className="rating"></div>
+								</div>
+							</div>
+						</li>
 
-                  <div className="duration">
-                    <ion-icon name="location"></ion-icon>
+						<li>
+							<div className="movie-card">
+								<a href="/#">
+									<figure className="card-banner">
+										<img src={dry_beans} alt="New Guinea Arona Coffee" />
+									</figure>
+								</a>
 
-                    <time datetime="PT137M">Morobe</time>
-                  </div>
+								<div className="title-wrapper">
+									<a href="/#">
+										<h3 className="card-title">New Guinea Arona Coffee</h3>
+									</a>
 
-                  <div className="rating">
-                    {/* <ion-icon name="star"></ion-icon> */}
+									<time datetime="2022">2023</time>
+								</div>
 
-                    {/* <data>8.5</data> */}
-                  </div>
-                </div>
-              </div>
-            </li>
+								<div className="card-meta">
+									<div className="badge badge-outline">Dry Roasted</div>
 
-            <li>
-              <div className="movie-card">
-                <a href="./movie-details.html">
-                  <figure className="card-banner">
-                    <img src={dry_beans} alt="New Guinea Arona Coffee" />
-                  </figure>
-                </a>
+									<div className="duration">
+										<ion-icon name="location"></ion-icon>
 
-                <div className="title-wrapper">
-                  <a href="./movie-details.html">
-                    <h3 className="card-title">New Guinea Arona Coffee</h3>
-                  </a>
+										<time datetime="PT126M">Highlands</time>
+									</div>
 
-                  <time datetime="2022">2022</time>
-                </div>
+									<div className="rating"></div>
+								</div>
+							</div>
+						</li>
 
-                <div className="card-meta">
-                  <div className="badge badge-outline">Dry Roasted</div>
+						<li>
+							<div className="movie-card">
+								<a href="/#">
+									<figure className="card-banner">
+										<img src={hero_bg} alt="beans" />
+									</figure>
+								</a>
 
-                  <div className="duration">
-                    <ion-icon name="location"></ion-icon>
+								<div className="title-wrapper">
+									<a href="/#">
+										<h3 className="card-title">New Guinea Arona Coffee</h3>
+									</a>
 
-                    <time datetime="PT126M">Highlands</time>
-                  </div>
+									<time datetime="2022">2023</time>
+								</div>
 
-                  <div className="rating">
-                    {/* <ion-icon name="star"></ion-icon> */}
+								<div className="card-meta">
+									<div className="badge badge-outline">Green Beans</div>
 
-                    {/* <data>NR</data> */}
-                  </div>
-                </div>
-              </div>
-            </li>
+									<div className="duration">
+										<ion-icon name="location"></ion-icon>
 
-            <li>
-              <div className="movie-card">
-                <a href="./movie-details.html">
-                  <figure className="card-banner">
-                    <img src={hero_bg} alt="Memory movie poster" />
-                  </figure>
-                </a>
+										<time datetime="">Highlands</time>
+									</div>
 
-                <div className="title-wrapper">
-                  <a href="./movie-details.html">
-                    <h3 className="card-title">New Guinea Arona Coffee</h3>
-                  </a>
+									<div className="rating"></div>
+								</div>
+							</div>
+						</li>
 
-                  <time datetime="2022">2022</time>
-                </div>
+						<li>
+							<div className="movie-card">
+								<a href="/#">
+									<figure className="card-banner">
+										<img src={dry_beans} alt="dry beans" />
+									</figure>
+								</a>
 
-                <div className="card-meta">
-                  <div className="badge badge-outline">Green Beans</div>
+								<div className="title-wrapper">
+									<a href="/#">
+										<h3 className="card-title">New Guinea Arona Coffee</h3>
+									</a>
 
-                  <div className="duration">
-                    <ion-icon name="location"></ion-icon>
+									<time datetime="2022">2023</time>
+								</div>
 
-                    <time datetime="">Highlands</time>
-                  </div>
+								<div className="card-meta">
+									<div className="badge badge-outline">Dry Roasted</div>
 
-                  <div className="rating">
-                    {/* <ion-icon name="star"></ion-icon> */}
+									<div className="duration">
+										<ion-icon name="location"></ion-icon>
 
-                    {/* <data>NR</data> */}
-                  </div>
-                </div>
-              </div>
-            </li>
+										<time datetime="PT107M">Highlands</time>
+									</div>
 
-            <li>
-              <div className="movie-card">
-                <a href="./movie-details.html">
-                  <figure className="card-banner">
-                    <img
-                      src={dry_beans}
-                      alt="The Unbearable Weight of Massive Talent movie poster"
-                    />
-                  </figure>
-                </a>
-
-                <div className="title-wrapper">
-                  <a href="./movie-details.html">
-                    <h3 className="card-title">New Guinea Arona Coffee</h3>
-                  </a>
-
-                  <time datetime="2022">2022</time>
-                </div>
-
-                <div className="card-meta">
-                  <div className="badge badge-outline">Dry Roasted</div>
-
-                  <div className="duration">
-                    <ion-icon name="location"></ion-icon>
-
-                    <time datetime="PT107M">Highlands</time>
-                  </div>
-
-                  <div className="rating">
-                    {/* <ion-icon name="star"></ion-icon> */}
-
-                    {/* <data>GRK</data> */}
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </>
-  );
+									<div className="rating"></div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</>
+	);
 };
 
 export default Upcoming;
