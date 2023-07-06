@@ -1,4 +1,4 @@
-# coffee-market
+# coffee-marketplace
 
 Our marketplace app is a platform that connects coffee farmers and exporters with potential buyers worldwide.
 
@@ -19,4 +19,3 @@ Live Demo
 3. Install dependencies with `npm install`
 4. Create a `.env` file and create environment variable as shown in the `example.env` file.
 5. Start the server with `npm start`
-6. Access the API at `http://localhost:3000/api`
