@@ -2,86 +2,89 @@ import "./header.css";
 import { Link } from "@mui/material";
 import MenuItems from "./MenuItems";
 import { logo } from "../../assets";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-	return (
-		<>
-			<header className="header" data-header>
-				<div className="container">
-					<div className="overlay" data-overlay></div>
+  const { isSignedIn } = useSelector((store) => store.profile);
 
-					<a href="/" className="logo">
-						<img src={logo} alt="kofi logo" style={{ height: "7rem" }} />
-					</a>
+  return (
+    <>
+      <header className="header" data-header>
+        <div className="container">
+          <div className="overlay" data-overlay></div>
 
-					<div className="header-actions">
-						<Link
-							className="btn btn-primary"
-							href="/signin"
-							sx={{
-								textDecoration: "none",
-								color: "white",
-							}}
-						>
-							Sign in
-						</Link>
-					</div>
+          <a href="/" className="logo">
+            <img src={logo} alt="kofi logo" style={{ height: "7rem" }} />
+          </a>
 
-					<button className="menu-open-btn" data-menu-open-btn>
-						<ion-icon name="reorder-two"></ion-icon>
-					</button>
+          <div className="header-actions">
+            <Link
+              className="btn btn-primary"
+              href="/signin"
+              sx={{
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              {isSignedIn ? "Sign out" : "Sign in"}
+            </Link>
+          </div>
 
-					<nav className="navbar" data-navbar>
-						<div className="navbar-top">
-							<a href="/" className="logo">
-								<img src="./assets/images/logo.svg" alt="Filmlane logo" />
-							</a>
+          <button className="menu-open-btn" data-menu-open-btn>
+            <ion-icon name="reorder-two"></ion-icon>
+          </button>
 
-							<button className="menu-close-btn" data-menu-close-btn>
-								<ion-icon name="close-outline"></ion-icon>
-							</button>
-						</div>
+          <nav className="navbar" data-navbar>
+            <div className="navbar-top">
+              <a href="/" className="logo">
+                <img src="./assets/images/logo.svg" alt="Filmlane logo" />
+              </a>
 
-						<ul className="navbar-list">
-							<MenuItems section={"navbar"} />
-						</ul>
+              <button className="menu-close-btn" data-menu-close-btn>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
 
-						<ul className="navbar-social-list">
-							<li>
-								<a href="/#" className="navbar-social-link">
-									<ion-icon name="logo-twitter"></ion-icon>
-								</a>
-							</li>
+            <ul className="navbar-list">
+              <MenuItems section={"navbar"} />
+            </ul>
 
-							<li>
-								<a href="/#" className="navbar-social-link">
-									<ion-icon name="logo-facebook"></ion-icon>
-								</a>
-							</li>
+            <ul className="navbar-social-list">
+              <li>
+                <a href="/#" className="navbar-social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
 
-							<li>
-								<a href="/#" className="navbar-social-link">
-									<ion-icon name="logo-pinterest"></ion-icon>
-								</a>
-							</li>
+              <li>
+                <a href="/#" className="navbar-social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
 
-							<li>
-								<a href="/#" className="navbar-social-link">
-									<ion-icon name="logo-instagram"></ion-icon>
-								</a>
-							</li>
+              <li>
+                <a href="/#" className="navbar-social-link">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
 
-							<li>
-								<a href="/#" class="navbar-social-link">
-									<ion-icon name="logo-youtube"></ion-icon>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</header>
-		</>
-	);
+              <li>
+                <a href="/#" className="navbar-social-link">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="/#" class="navbar-social-link">
+                  <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </>
+  );
 };
 
 export default Header;
