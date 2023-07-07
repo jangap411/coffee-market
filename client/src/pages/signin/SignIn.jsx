@@ -56,7 +56,6 @@ const SignIn = () => {
       handleAlertOpen("success", true, `Welcome ${username}`);
     } catch (error) {
       handleAlertOpen("error", true, error.message);
-      // alert(error.message);
       console.error(error);
     }
   };

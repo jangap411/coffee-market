@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isAlertOpen: false,
   alertMessage: "",
-  alertType: "",
+  alertType: "success",
 };
 
 // create slice
