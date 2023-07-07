@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 // GLOBAL VARS
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = "%2Fv2%2F62970d06a225447ba9996385%23%";//process.env.JWT_SECRET;
 
 /**
  * POST Register user  function
