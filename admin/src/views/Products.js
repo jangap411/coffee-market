@@ -61,15 +61,75 @@ const Products = () => {
     <>
       <div className="content">
         <Row>
-          <Col className="ml-auto mr-auto" md="8">
-            <Row>
-              {products.map((product) => (
-                <>
-                  <ProductCard key={product} />
-                </>
-              ))}
-            </Row>
+          <Col md="12">
+            <Card>
+              <CardBody>
+                <div className="places-buttons">
+                  <Row>
+                    <Col className="ml-auto mr-auto text-center" md="6">
+                      <CardTitle tag="h4">Notifications Places</CardTitle>
+                      <p className="category">Click to view notifications</p>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="ml-auto mr-auto" lg="8">
+                      <Row>
+                        <Col md="4">
+                          <Button
+                            block
+                            color="primary"
+                            onClick={() => alert("tl")}
+                          >
+                            Top Left
+                          </Button>
+                        </Col>
+                        <Col md="4">
+                          <Button
+                            block
+                            color="primary"
+                            onClick={() => alert("tc")}
+                          >
+                            Top Center
+                          </Button>
+                        </Col>
+                        <Col md="4">
+                          <Button
+                            block
+                            color="primary"
+                            onClick={() => alert("tr")}
+                          >
+                            Top Right
+                          </Button>
+                        </Col>
+                      </Row>
+                      <Row>
+                        {products.map((product) => (
+                          <>
+                            <ProductCard key={product} />
+                          </>
+                        ))}
+                      </Row>
+                    </Col>
+                  </Row>
+                </div>
+              </CardBody>
+            </Card>
           </Col>
+        </Row>
+        <Row>
+          <Card>
+            <CardBody>
+              <Col>
+                <Row>
+                  {products.map((product) => (
+                    <>
+                      <ProductCard key={product} />
+                    </>
+                  ))}
+                </Row>
+              </Col>
+            </CardBody>
+          </Card>
         </Row>
       </div>
     </>
