@@ -17,6 +17,9 @@ const registerUser = async (req, res) => {
     // Extract user details from request body
     const { name, username, email, password, isAdmin } = req.body;
 
+    // console log request body
+    console.log("req.body",req.body);
+    
     // creating password hash
     const salt = await bcrypt.genSalt(10);
     const hashPassword = bcrypt.hashSync(password, salt);
